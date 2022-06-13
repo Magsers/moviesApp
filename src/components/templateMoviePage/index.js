@@ -33,7 +33,8 @@ const TemplateMoviePage = ({ movie, children }) => {
   }, []);
 
   return (
-    <>
+    <div className={classes.root}>
+    
       <MovieHeader movie={movie} />
 
       <Grid container spacing={5} style={{ padding: "15px" }}>
@@ -56,7 +57,7 @@ const TemplateMoviePage = ({ movie, children }) => {
           {children}
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 };
 
