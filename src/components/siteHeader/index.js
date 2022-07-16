@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 
 const SiteHeader = () => {
   const classes = useStyles();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));

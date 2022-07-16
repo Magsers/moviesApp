@@ -67,7 +67,7 @@ const ReviewForm = ({ movie }) => {
     const context = useContext(MoviesContext);
     const [rating, setRating] = useState(3);
     const [open, setOpen] = useState(false);  //NEW
-    const navigate = useNavigate()          
+    const navigate = useNavigate();          
   
     const handleRatingChange = (event) => {
       setRating(event.target.value);
