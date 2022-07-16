@@ -28,6 +28,7 @@ export default function MovieCard({ movie, action }) {
   const classes = useStyles();
   // const { favourites, addToFavourites } = useContext(MoviesContext);
   const { favourites } = useContext(MoviesContext);
+  const { mustWatch } = useContext(MoviesContext);
 
   if (favourites.find((id) => id === movie.id)) {
     movie.favourite = true;
@@ -35,10 +36,11 @@ export default function MovieCard({ movie, action }) {
     movie.favourite = false
   }
 
-  // const handleAddToFavourite = (e) => {
-  //   e.preventDefault();
-  //   addToFavourites(movie);
-  // };
+  if (mustWatch.find((id) => id === movie.id)) {
+    movie.mustWatchmovie = true;
+  } else {
+    movie.mustWatchmovie = false
+  }
 
   return (
     <Card className={classes.card}>

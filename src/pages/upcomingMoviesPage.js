@@ -17,13 +17,13 @@ const UpcomingMoviesPage = (props) => {
   }  
   const movies = data.results;
 
-  const favourites = movies.filter(m => m.favourite)
-  localStorage.setItem('favourites', JSON.stringify(favourites))
-  // const addToFavourites = () => null;  
+  const mustWatch = movies.filter(m => m.mustWatchMovie)
+  localStorage.setItem('must-watch', JSON.stringify(mustWatch))
+  // const addToMustWatch = (movieId) => true 
 
   return (
     <PageTemplate
-      title="Discover Movies"
+      title="Upcoming Movies"
       movies={movies}
       action={(movie) => {
         return <AddToMustWatchIcon movie={movie} />
