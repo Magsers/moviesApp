@@ -10,43 +10,39 @@ import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
 import { getMovieReviews } from "../../api/tmdb-api";
 import { excerpt } from "../../util";
-
 const useStyles = makeStyles({
   table: {
     minWidth: 550,
   },
 });
-
 export default function MovieReviews({ movie }) {
   const classes = useStyles();
   const [reviews, setReviews] = useState([]);
-
   useEffect(() => {
     getMovieReviews(movie.id).then((reviews) => {
       setReviews(reviews);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="reviews table">
         <TableHead>
           <TableRow>
             <TableCell >Author</TableCell>
-            <TableCell align="center">Excerpt</TableCell>
-            <TableCell align="right">More</TableCell>
+            <TableCell style={{backgroundColor:'#7197D1',color:'white'}} align="center">Excerpt</TableCell>
+            <TableCell style={{backgroundColor:'orange'}} align="right">More</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {reviews.map((r) => (
-            <TableRow key={r.id}>
-              <TableCell component="th" scope="row">
+            <TableRow key={r.id}style={{backgroundColor:'#F5F5F5'}}>
+              <TableCell component="th" scope="row" style={{backgroundColor:'orange'}}>
                 {r.author}
               </TableCell>
               <TableCell >{excerpt(r.content)}</TableCell>
               <TableCell >
-                <Link
+                <Link style={{color:'orange'}}
                   to={`/reviews/${r.id}`}
                   state={{
                     review: r,
